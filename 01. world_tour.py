@@ -14,6 +14,8 @@ while command[0] != "Travel":
             stops = stops[:index] + some_string + stops[index:]
     elif command[0] == "Remove Stop":
         start_index, end_index = int(command[2], command[2])
+        if start_index in range(len(stops)) and end_index in range(len(stops)):
+            stops = stops[:start_index] + stops[end_index +1:]
     elif command[0] == "Switch":
          old_string, new_string= int(command[2], command[2])
          
