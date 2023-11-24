@@ -23,6 +23,12 @@ while command[0] != "End":
     action = command[0]    
     if action == "Plunder":
         town, people, gold = command[1], int(command[2]), int(command[3])
+        print(f"{town} plundered! {gold} gold stolen, {people} citizens killed.")
+        cities[town]["population"] -= people
+        cities[town]["gold"] -= gold
+        if cities[town]["population"] == 0 or cities[town]["gold"] == 0:
+            cities.pop(town)
+            print(f"{town} has been wiped off the map!")
     elif action == "Prosper":
         pass
     
@@ -32,8 +38,6 @@ while command[0] != "End":
 
 
 
-print(f"{town} plundered! {gold} gold stolen, {people} citizens killed.")
-print(f"{town} has been wiped off the map!")
 print(f"Gold added cannot be a negative number!" and ignore the command.)
 print(f"{gold added} gold added to the city treasury. {town} now has {total gold} gold.")
 print(f"Ahoy, Captain! There are {count} wealthy settlements to go to:")
