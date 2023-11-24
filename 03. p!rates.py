@@ -3,6 +3,7 @@
 
 
 # Second task from the lecture
+
 cities = {}
 command = input().split("||")
 while command[0] != "Sail":
@@ -10,14 +11,8 @@ while command[0] != "Sail":
     if city not in cities.keys():
         cities[city] = {"population": 0, "gold": 0}
     cities[city]["population"] += population
-    cities[city]["gold"] += gold
-    
-    
-    
-    
-    command = input().split("||")
-    
-    
+    cities[city]["gold"] += gold  
+    command = input().split("||")    
 command = input().split("=>")
 while command[0] != "End":
     action = command[0]    
@@ -30,15 +25,17 @@ while command[0] != "End":
             cities.pop(town)
             print(f"{town} has been wiped off the map!")
     elif action == "Prosper":
-        pass
-    
+        town, gold = command[1], int(command[2])
+        if gold < 0:
+            print(f"Gold added cannot be a negative number!")
+        else:
+            cities[town]["gold"] += gold
+            print(f"{gold} gold added to the city treasury. {town} now has {cities[town]['gold']} gold.")                
     command = input().split("=>")
-
-
-
-
-
-print(f"Gold added cannot be a negative number!" and ignore the command.)
-print(f"{gold added} gold added to the city treasury. {town} now has {total gold} gold.")
-print(f"Ahoy, Captain! There are {count} wealthy settlements to go to:")
-print("Ahoy, Captain! All targets have been plundered and destroyed!")
+if cities:
+    print(f"Ahoy, Captain! There are {len(cities)} wealthy settlements to go to:")
+    for town, town_information in cities.items():   
+        print(f"{town} -> Population: {town_information['population']} citizens, Gold: {town_information['gold']} kg")
+else:
+    print("Ahoy, Captain! All targets have been plundered and destroyed!")
+    
