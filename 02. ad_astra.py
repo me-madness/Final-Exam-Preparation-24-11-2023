@@ -34,4 +34,4 @@ days = total_calories // 2000
 print(f"You have food to last you for: {days} days!")
 for match in matches:
     match_dict = dict(zip["symbol", "item_name", "symbol", "expiration_date", "symbol", "calories"], match)
-    print(f"Item: {match_dict["item_name"]}, Best before: {match_dict["expiration_date"]}, Nutrition: {match_dict["calories"]}")
+    print(f"Item: {match_dict['item_name']}, Best before: {match_dict['expiration_date']}, Nutrition: {match_dict['calories']}")
