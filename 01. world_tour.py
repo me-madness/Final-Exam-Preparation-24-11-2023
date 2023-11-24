@@ -25,4 +25,4 @@ while command[0] != "Travel":
     command = input().split(":")     
 
 
-print(f"Ready for world tour! Planned stops: {string}")
+print(f"Ready for world tour! Planned stops: {stops}")
